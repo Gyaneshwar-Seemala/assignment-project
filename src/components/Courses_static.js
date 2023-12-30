@@ -30,7 +30,7 @@ export const Courses_static=()=>{
       };
 
       return(
-        <section className="course" id='courses'>
+        <section className="course" id='ServicesOffered'>
             <Container>
                 <Row>
                     <Col>
