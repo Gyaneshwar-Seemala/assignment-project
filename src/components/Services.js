@@ -1,379 +1,317 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ServiceCard } from "./ServiceCard";
-import Datascience from '../assets/img/AI services/datascience.webp';
-import Ml from '../assets/img/AI services/Ml.jpg'
+import Datascience from "../assets/img/AI services/datascience.webp";
+import Ml from "../assets/img/AI services/Ml.jpg";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 import "../styles/Services.css";
 
 export const Services = () => {
-    const services = [
-        // AI Services
-        {
-          title: "Data Science and Predictive Analytics",
-          description:
-            "Uncovering insights and forecasting future trends using advanced analytics techniques.",
-          category: "AI",
-          imgUrl: Datascience,
-        },
-        {
-          title: "Machine Learning Solutions",
-          description:
-            "Developing algorithms for computers to learn and make decisions based on data.",
-          category: "AI",
-          imgUrl: Ml
-        },
-        {
-          title: "Advanced Data Analysis",
-          description:
-            "Extracting meaningful patterns and intelligence from complex datasets.",
-          category: "AI",
-          imgUrl: "https://www.financialexecutives.org/FEI/media/FEI/Daily/ibm-analytics.jpg",
-        },
-        {
-          title: "Data Engineering Services",
-          description:
-            "Architecting and optimizing data pipelines for efficient data flow and storage.",
-          category: "AI",
-          imgUrl: "https://img.freepik.com/free-vector/illustration-social-media-concept_53876-18134.jpg?w=996&t=st=1703945492~exp=1703946092~hmac=3f3a8a4b7ec250a7a3e4c338d353daf776d79fa6578c709de69c84573ef1a585",
-        },
-        {
-          title: "ML Operations (MLOps)",
-          description:
-            "Streamlining the machine learning lifecycle from development to deployment and maintenance.",
-          category: "AI",
-          imgUrl:"https://dce0qyjkutl4h.cloudfront.net/wp-content/uploads/2022/02/ML-Project-life-cycle.jpg",
-        },
-        {
-          title: "Generative AI and Creative Solutions",
-          description:
-            "Crafting innovative applications using generative models for content creation and design.",
-          category: "AI",
-          imgUrl:"https://www.latentview.com/wp-content/uploads/2023/07/generative-ai-and-the-evolution-of-llm-models-featured.jpg",
-        },
-        {
-          title: "Intelligent Recommendation Systems",
-          description:
-            "Designing systems that provide personalized suggestions to users based on their preferences and behaviors.",
-          category: "AI",
-          imgUrl: "https://miro.medium.com/v2/resize:fit:1200/1*rTZvrFD258ZZwvGy7nyqDw.jpeg",
-        },
-        {
-          title: "AI-Powered Forecasting",
-          description:
-            "Offering precise demand and trend forecasting for various industries.",
-          category: "AI",
-          imgUrl: "https://img.freepik.com/free-vector/robot-doing-repeatable-tasks-with-lot-folders-magnifier-robotic-process-automation-service-robots-profit-automated-processing-concept_335657-2111.jpg?w=996&t=st=1703946055~exp=1703946655~hmac=f8bc6536c509d0c5cae9d63585c1399eb90d3b548192e8c4766f01ffd00787ee",
-        },
-        {
-          title: "Anomaly Detection Systems",
-          description:
-            "Identifying unusual patterns or outliers in data that may indicate critical incidents or opportunities.",
-          category: "AI",
-          imgUrl: "https://miro.medium.com/v2/resize:fit:1400/1*d6FCZB7TI2L_VRcoYpS_6A.jpeg",
-        },
-      
-        // DevOps Services
-        {
-          title: "Continuous Integration/Continuous Deployment (CI/CD)",
-          description:
-            "Streamlining the software release process with automated integration, testing, and deployment pipelines to accelerate time-to-market.",
-          category: "DevOps",
-          imgUrl:"https://img.freepik.com/free-vector/professional-group-working-project_1262-19870.jpg?w=996&t=st=1703947134~exp=1703947734~hmac=4f6c2aa91a624f61411dd96d0d38b0f691eea21f1898c585c037b605e135619c",
-        },
-        {
-          title: "Automated Deployments",
-          description:
-            "Implementing reliable, repeatable, and scalable deployment processes to ensure consistent delivery of applications.",
-          category: "DevOps",
-          imgUrl:"https://www.shutterstock.com/image-vector/devops-engineers-web-design-people-600nw-1918572845.jpg",
-        },
-        {
-          title: "Cloud Optimization Services",
-          description:
-            "Analyzing and enhancing cloud environments to improve efficiency, reduce costs, and ensure optimal performance.",
-          category: "DevOps",
-          imgUrl:"https://img.freepik.com/free-vector/cloud-computing-polygonal-wireframe-technology-concept_1017-29594.jpg?w=996&t=st=1703946995~exp=1703947595~hmac=3fff9f7ece6a96b06e8e3fe8380ba6cc748348bdc7910535074ec42265a38a0d",
-        },
-        {
-          title: "Machine Learning Operations (MLOps)",
-          description:
-            "Integrating ML workflows with DevOps practices to streamline the development, deployment, and maintenance of machine learning models.",
-          category: "DevOps",
-          imgUrl: Ml,
-        },
-        {
-          title: "Data Warehousing Solutions",
-          description:
-            "Designing and maintaining centralized repositories for large-scale data storage, analysis, and reporting.",
-          category: "DevOps",
-          imgUrl:"https://img.freepik.com/free-vector/computer-technology-isometric-icon-server-room-digital-device-set-element-design-pc-laptop_39422-1026.jpg?w=996&t=st=1703946827~exp=1703947427~hmac=402825a3f6c3386302efd28110d8cdddd917e138b98c6b5551479758afc84e03",
-        },
-        {
-          title: "Scaling and Load Balancing Strategies",
-          description:
-            "Ensuring applications can handle varying loads with dynamic scaling and effective distribution of traffic across resources.",
-          category: "DevOps",
-          imgUrl:"https://img.freepik.com/free-vector/tiny-business-people-look-product-performance-indicator_335657-2444.jpg?w=996&t=st=1703946885~exp=1703947485~hmac=e17ebd557ef1ceac1ae915e3f6e9449aa005a19c6ae918760a0493b96f89bd28",
-        },
-        {
-          title: "Cloud Monitoring and Management",
-          description:
-            "Providing real-time visibility into cloud infrastructure to detect and resolve issues promptly, ensuring high availability and performance.",
-          category: "DevOps",
-          imgUrl:"https://img.freepik.com/free-vector/two-developers-looking-gears-cloud-digital-data-storage-database-securiry-data-protection-cloud-technology-concept-vector-illustration-isolated_335657-2196.jpg?size=626&ext=jpg&ga=GA1.1.1546980028.1702684800&semt=ais",
-        },
-        {
-          title: "DevOps Consulting and Strategy",
-          description:
-            "Assisting organizations in adopting DevOps culture, practices, and tools to improve collaboration and efficiency.",
-          category: "DevOps",
-          imgUrl:"https://static.vecteezy.com/system/resources/previews/003/512/535/non_2x/devops-concept-isolated-software-development-in-team-processes-organization-people-scene-in-flat-cartoon-design-illustration-for-blogging-website-mobile-app-promotional-materials-vector.jpg",
-        },
-        {
-          title: "Cloud Migration Services",
-          description:
-            "Assisting with the transition of applications, data, and services from on-premises infrastructure to cloud environments.",
-          category: "DevOps",
-          imgUrl:"https://d2v4wz5vk7guj6.cloudfront.net/wp-content/uploads/2021/07/CD_Cloud_Migration.jpg",
-        },
-      
-        // Web Development - Backend
-        {
-          title: "API Development Services",
-          description:
-            "Crafting robust and scalable APIs to facilitate communication between different software components and systems.",
-          category: "Web Development - Backend",
-        },
-        {
-          title: "RESTful API Solutions",
-          description:
-            "Designing and implementing REST APIs for seamless data exchange and integration with web services.",
-          category: "Web Development - Backend",
-        },
-        {
-          title: "GraphQL API Implementation",
-          description:
-            "Delivering efficient and flexible data querying capabilities with GraphQL API development.",
-          category: "Web Development - Backend",
-        },
-        {
-          title: "Django Development",
-          description:
-            "Leveraging the Django web framework for rapid development of secure and maintainable web applications.",
-          category: "Web Development - Backend",
-        },
-        {
-          title: "Flask Application Services",
-          description:
-            "Building lightweight and modular web services using the Flask micro web framework.",
-          category: "Web Development - Backend",
-        },
-        {
-          title: "FastAPI Creation",
-          description:
-            "Utilizing FastAPI for high-performance API development with automatic interactive API documentation.",
-          category: "Web Development - Backend",
-        },
-        {
-          title: "Microservices Architecture",
-          description:
-            "Architecting and deploying independently scalable microservices for complex application ecosystems.",
-          category: "Web Development - Backend",
-        },
-        {
-          title: "Payment Gateway Integration",
-          description:
-            "Enabling secure and seamless payment transactions within applications through various payment gateway solutions.",
-          category: "Web Development - Backend",
-        },
-        {
-          title: "Scheduled Task Management (Cron Jobs)",
-          description:
-            "Automating routine tasks and operations through reliable scheduling systems.",
-          category: "Web Development - Backend",
-        },
-        {
-          title: "Background Job Processing",
-          description:
-            "Managing and executing long-running tasks in the background to improve application performance and user experience.",
-          category: "Web Development - Backend",
-        },
-        {
-          title: "Caching Strategies",
-          description:
-            "Implementing caching mechanisms to enhance response times and reduce load on backend systems.",
-          category: "Web Development - Backend",
-        },
-        {
-          title: "Database Management",
-          description:
-            "Offering both SQL and NoSQL database solutions tailored to the specific data storage and retrieval needs of applications.",
-          category: "Web Development - Backend",
-        },
-        {
-          title: "Process Automation Services",
-          description:
-            "Streamlining and automating business processes to increase efficiency and reduce manual intervention.",
-          category: "Web Development - Backend",
-        },
-        {
-          title: "Third-Party API Integration",
-          description:
-            "Seamlessly integrating external services and APIs to extend application functionality and data access.",
-          category: "Web Development - Backend",
-        },
-        {
-          title: "Database Design and Optimization",
-          description:
-            "Structuring and refining databases to ensure data integrity, performance, and scalability.",
-          category: "Web Development - Backend",
-        },
-        {
-          title: "Backend Security Practices",
-          description:
-            "Ensuring the protection of backend systems through security audits, best practices, and compliance with standards.",
-          category: "Web Development - Backend",
-        },
-        {
-          title: "Data Migration Services",
-          description:
-            "Safely transferring data between storage systems, formats, or computing environments.",
-          category: "Web Development - Backend",
-        },
-        {
-          title: "Backend Performance Optimization",
-          description:
-            "Analyzing and improving backend operations to handle high loads and optimize resource usage.",
-          category: "Web Development - Backend",
-        },
-        {
-          title: "Real-time Data Processing",
-          description:
-            "Building systems capable of processing data in real time for applications requiring immediate insights and actions.",
-          category: "Web Development - Backend",
-        },
-        {
-          title: "Backend Scalability Solutions",
-          description:
-            "Creating backends that can adapt and grow with the increasing demands of the business and its users.",
-          category: "Web Development - Backend",
-        },
-      
-        // Web Development - Frontend
-        {
-          title: "React Web Application Development",
-          description:
-            "Crafting dynamic and responsive single-page applications (SPAs) with React for an engaging user experience.",
-          category: "Web Development - Frontend",
-        },
-        {
-          title: "React Component Design",
-          description:
-            "Creating reusable, maintainable, and scalable UI components that can be shared across different parts of an application or even between services.",
-          category: "Web Development - Frontend",
-        },
-        {
-          title: "UI/UX Development",
-          description:
-            "Designing user interfaces that are both visually appealing and user-friendly, using React to implement the latest UI/UX trends and best practices.",
-          category: "Web Development - Frontend",
-        },
-        {
-          title: "Progressive Web App (PWA) Development",
-          description:
-            "Leveraging React to build PWAs that offer a near-native experience, with offline capabilities and improved performance.",
-          category: "Web Development - Frontend",
-        },
-      
-        // QA Services
-        {
-          title: "Manual Testing Services",
-          description:
-            "Conducting thorough manual testing of applications to identify bugs, inconsistencies, and usability issues.",
-          category: "QA",
-        },
-        {
-          title: "Test Case Development",
-          description:
-            "Writing detailed test cases that cover all aspects of application functionality to guide the manual testing process.",
-          category: "QA",
-        },
-        {
-          title: "Exploratory Testing",
-          description:
-            "Employing experienced QA professionals to explore applications without predefined test cases, uncovering issues that may not be immediately apparent.",
-          category: "QA",
-        },
-        {
-          title: "User Acceptance Testing (UAT)",
-          description:
-            "Facilitating end-user testing to validate that the application meets business requirements and user expectations before release.",
-          category: "QA",
-        },
-        {
-          title: "Cross-Browser Testing",
-          description:
-            "Ensuring compatibility and consistent performance across various web browsers and versions.",
-          category: "QA",
-        },
-        {
-          title: "Mobile Application Testing",
-          description:
-            "Verifying the functionality, usability, and consistency of mobile applications on different devices and operating systems.",
-          category: "QA",
-        },
-        {
-          title: "Usability Testing",
-          description:
-            "Assessing the application's user interface and user experience to ensure it is intuitive, user-friendly, and aligned with user expectations.",
-          category: "QA",
-        },
-        {
-          title: "Regression Testing",
-          description:
-            "Performing repeated testing of an application after modifications to ensure new code changes have not adversely affected existing functionality.",
-          category: "QA",
-        },
-        {
-          title: "Performance Testing",
-          description:
-            "Evaluating the application's responsiveness, speed, and stability under different load conditions.",
-          category: "QA",
-        },
-        {
-          title: "Integration Testing",
-          description:
-            "Checking the interfaces and interactions between various components of an application to ensure they work together as expected.",
-          category: "QA",
-        },
-        {
-          title: "Security Testing",
-          description:
-            "Identifying potential vulnerabilities in applications that could lead to security breaches.",
-          category: "QA",
-        },
-        {
-          title: "Compliance Testing",
-          description:
-            "Verifying that applications adhere to relevant industry standards, regulations, and accessibility guidelines.",
-          category: "QA",
-        },
-        {
-          title: "Test Plan and Strategy Development",
-          description:
-            "Creating comprehensive test plans and strategies that align with service goals and timelines.",
-          category: "QA",
-        },
-        {
-          title: "QA Consulting",
-          description:
-            "Providing expert advice on best practices in QA and helping to implement effective testing processes.",
-          category: "QA",
-        },
-      ];
-      
+  const services = [
+    // AI Services
+    {
+      title: "Data Science and Predictive Analytics",
+      description:
+        "Uncovering insights and forecasting future trends using advanced analytics techniques.",
+      category: "AI",
+      imgUrl: Datascience,
+    },
+    {
+      title: "Machine Learning Solutions",
+      description:
+        "Developing algorithms for computers to learn and make decisions based on data.",
+      category: "AI",
+      imgUrl: Ml,
+    },
+    {
+      title: "Advanced Data Analysis",
+      description:
+        "Extracting meaningful patterns and intelligence from complex datasets.",
+      category: "AI",
+      imgUrl:
+        "https://www.financialexecutives.org/FEI/media/FEI/Daily/ibm-analytics.jpg",
+    },
+    {
+      title: "Data Engineering Services",
+      description:
+        "Architecting and optimizing data pipelines for efficient data flow and storage.",
+      category: "AI",
+      imgUrl:
+        "https://img.freepik.com/free-vector/illustration-social-media-concept_53876-18134.jpg?w=996&t=st=1703945492~exp=1703946092~hmac=3f3a8a4b7ec250a7a3e4c338d353daf776d79fa6578c709de69c84573ef1a585",
+    },
+    {
+      title: "ML Operations (MLOps)",
+      description:
+        "Streamlining the machine learning lifecycle from development to deployment and maintenance.",
+      category: "AI",
+      imgUrl:
+        "https://dce0qyjkutl4h.cloudfront.net/wp-content/uploads/2022/02/ML-Project-life-cycle.jpg",
+    },
+    {
+      title: "Generative AI and Creative Solutions",
+      description:
+        "Crafting innovative applications using generative models for content creation and design.",
+      category: "AI",
+      imgUrl:
+        "https://www.latentview.com/wp-content/uploads/2023/07/generative-ai-and-the-evolution-of-llm-models-featured.jpg",
+    },
+    {
+      title: "Intelligent Recommendation Systems",
+      description:
+        "Designing systems that provide personalized suggestions to users based on their preferences and behaviors.",
+      category: "AI",
+      imgUrl:
+        "https://miro.medium.com/v2/resize:fit:1200/1*rTZvrFD258ZZwvGy7nyqDw.jpeg",
+    },
+    {
+      title: "AI-Powered Forecasting",
+      description:
+        "Offering precise demand and trend forecasting for various industries.",
+      category: "AI",
+      imgUrl:
+        "https://img.freepik.com/free-vector/robot-doing-repeatable-tasks-with-lot-folders-magnifier-robotic-process-automation-service-robots-profit-automated-processing-concept_335657-2111.jpg?w=996&t=st=1703946055~exp=1703946655~hmac=f8bc6536c509d0c5cae9d63585c1399eb90d3b548192e8c4766f01ffd00787ee",
+    },
+    {
+      title: "Anomaly Detection Systems",
+      description:
+        "Identifying unusual patterns or outliers in data that may indicate critical incidents or opportunities.",
+      category: "AI",
+      imgUrl:
+        "https://miro.medium.com/v2/resize:fit:1400/1*d6FCZB7TI2L_VRcoYpS_6A.jpeg",
+    },
+
+    // DevOps Services
+    {
+      title: "Continuous Integration/Continuous Deployment (CI/CD)",
+      description:
+        "Streamlining the software release process with automated integration, testing, and deployment pipelines to accelerate time-to-market.",
+      category: "DevOps",
+      imgUrl:
+        "https://img.freepik.com/free-vector/professional-group-working-project_1262-19870.jpg?w=996&t=st=1703947134~exp=1703947734~hmac=4f6c2aa91a624f61411dd96d0d38b0f691eea21f1898c585c037b605e135619c",
+    },
+    {
+      title: "Automated Deployments",
+      description:
+        "Implementing reliable, repeatable, and scalable deployment processes to ensure consistent delivery of applications.",
+      category: "DevOps",
+      imgUrl:
+        "https://www.shutterstock.com/image-vector/devops-engineers-web-design-people-600nw-1918572845.jpg",
+    },
+    {
+      title: "Cloud Optimization Services",
+      description:
+        "Analyzing and enhancing cloud environments to improve efficiency, reduce costs, and ensure optimal performance.",
+      category: "DevOps",
+      imgUrl:
+        "https://img.freepik.com/free-vector/cloud-computing-polygonal-wireframe-technology-concept_1017-29594.jpg?w=996&t=st=1703946995~exp=1703947595~hmac=3fff9f7ece6a96b06e8e3fe8380ba6cc748348bdc7910535074ec42265a38a0d",
+    },
+    {
+      title: "Machine Learning Operations (MLOps)",
+      description:
+        "Integrating ML workflows with DevOps practices to streamline the development, deployment, and maintenance of machine learning models.",
+      category: "DevOps",
+      imgUrl: Ml,
+    },
+    {
+      title: "Data Warehousing Solutions",
+      description:
+        "Designing and maintaining centralized repositories for large-scale data storage, analysis, and reporting.",
+      category: "DevOps",
+      imgUrl:
+        "https://img.freepik.com/free-vector/computer-technology-isometric-icon-server-room-digital-device-set-element-design-pc-laptop_39422-1026.jpg?w=996&t=st=1703946827~exp=1703947427~hmac=402825a3f6c3386302efd28110d8cdddd917e138b98c6b5551479758afc84e03",
+    },
+    {
+      title: "Scaling and Load Balancing Strategies",
+      description:
+        "Ensuring applications can handle varying loads with dynamic scaling and effective distribution of traffic across resources.",
+      category: "DevOps",
+      imgUrl:
+        "https://img.freepik.com/free-vector/tiny-business-people-look-product-performance-indicator_335657-2444.jpg?w=996&t=st=1703946885~exp=1703947485~hmac=e17ebd557ef1ceac1ae915e3f6e9449aa005a19c6ae918760a0493b96f89bd28",
+    },
+    {
+      title: "Cloud Monitoring and Management",
+      description:
+        "Providing real-time visibility into cloud infrastructure to detect and resolve issues promptly, ensuring high availability and performance.",
+      category: "DevOps",
+      imgUrl:
+        "https://img.freepik.com/free-vector/two-developers-looking-gears-cloud-digital-data-storage-database-securiry-data-protection-cloud-technology-concept-vector-illustration-isolated_335657-2196.jpg?size=626&ext=jpg&ga=GA1.1.1546980028.1702684800&semt=ais",
+    },
+    {
+      title: "DevOps Consulting and Strategy",
+      description:
+        "Assisting organizations in adopting DevOps culture, practices, and tools to improve collaboration and efficiency.",
+      category: "DevOps",
+      imgUrl:
+        "https://static.vecteezy.com/system/resources/previews/003/512/535/non_2x/devops-concept-isolated-software-development-in-team-processes-organization-people-scene-in-flat-cartoon-design-illustration-for-blogging-website-mobile-app-promotional-materials-vector.jpg",
+    },
+    {
+      title: "Cloud Migration Services",
+      description:
+        "Assisting with the transition of applications, data, and services from on-premises infrastructure to cloud environments.",
+      category: "DevOps",
+      imgUrl:
+        "https://d2v4wz5vk7guj6.cloudfront.net/wp-content/uploads/2021/07/CD_Cloud_Migration.jpg",
+    },
+
+    // Web Development - Backend
+    {
+      title: "API Development Services",
+      description:
+        "Crafting robust and scalable APIs to facilitate communication between different software components and systems.",
+      category: "Web Development - Backend",
+      imgUrl:
+        "https://img.freepik.com/free-vector/gradient-api-illustration_23-2149379656.jpg?ga=GA1.1.747063962.1703945474&semt=ais",
+    },
+    {
+      title: "RESTful API Solutions",
+      description:
+        "Designing and implementing REST APIs for seamless data exchange and integration with web services.",
+      category: "Web Development - Backend",
+      imgUrl:
+        "https://img.freepik.com/free-vector/gradient-api-infographic_23-2149371582.jpg?ga=GA1.1.747063962.1703945474&semt=ais",
+    },
+    {
+      title: "GraphQL API Implementation",
+      description:
+        "Delivering efficient and flexible data querying capabilities with GraphQL API development.",
+      category: "Web Development - Backend",
+      imgUrl:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRothn9GS88D-TTnb44icPVcBtnUdhjmcaKKQ&usqp=CAU",
+    },
+    {
+      title: "Django Development",
+      description:
+        "Leveraging the Django web framework for rapid development of secure and maintainable web applications.",
+      category: "Web Development - Backend",
+      imgUrl: "https://img-c.udemycdn.com/course/750x422/1562632_a245_2.jpg",
+    },
+    {
+      title: "Flask Application Services",
+      description:
+        "Building lightweight and modular web services using the Flask micro web framework.",
+      category: "Web Development - Backend",
+      imgUrl:
+        "data:image/jpeg;base64,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",
+    },
+    {
+      title: "FastAPI Creation",
+      description:
+        "Utilizing FastAPI for high-performance API development with automatic interactive API documentation.",
+      category: "Web Development - Backend",
+      imgUrl:
+        "data:image/jpeg;base64,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",
+    },
+    {
+      title: "Microservices Architecture",
+      description:
+        "Architecting and deploying independently scalable microservices for complex application ecosystems.",
+      category: "Web Development - Backend",
+      imgUrl:
+        "https://img.freepik.com/free-vector/cloudy-storage-server-mobile-phone-data-upload-server-room-rack_39422-441.jpg?w=996&t=st=1704014043~exp=1704014643~hmac=c396aa01c97247dfa580edac55e78fbe8f9d909989a5708fdf323d3c80d99eea",
+    },
+    {
+      title: "Payment Gateway Integration",
+      description:
+        "Enabling secure and seamless payment transactions within applications through various payment gateway solutions.",
+      category: "Web Development - Backend",
+      imgUrl:
+        "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxETEhMSEhAWFhUWFhgVFxgWGBgYGBgWGBoaFxUXFRUYHSggGholHRcVITEhJSktLi4uGB8zODMtNygtLisBCgoKDg0OGxAQGy0mICUwLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIALcBEwMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABQYCBAcDAQj/xABUEAABAwEFAwYICAkKBQUBAAABAAIDEQQFEiExBkFREyJhcZGxBxQycoGSobIVIzM0QlLB0VNic4OTs8LS4RYXJEVUgqKj4vAIQ2R040Rjw9PxNf/EABoBAQADAQEBAAAAAAAAAAAAAAABAgMEBQb/xAA4EQACAQIDBQUFBwQDAAAAAAAAAQIDERIhMQQTQVFhInGRsfAygaHB0QUUM0Ky4fEjcoKiFVNi/9oADAMBAAIRAxEAPwDuKIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiwe8DMkDrWrJeMY3k9Q+9Ehc3UUab2b9V3sWQvVm9rvZ96mzIuiQRa0Vujdo7ty71sqCQiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAtae2RMIa+VjXO0DnAE9QJzWyuT266oLTfdu8YibKI2WdrA8YmgOjcSMJy1Feg14q0Vchux1ZpBzBWS5wNj7EM443wnjBLLF7GPA9izbcc7Pkr1tzOh8jJh/msJ9qnB1K4zoiLn7WXuzybzjk6JrK32mN7e5ec9uvvQ+IyDgOXiJ6/KCYOoxl5mt0bd9TwGf8FpyXs76LQOvNUo3pejdbsjf+TtTB7JGNUXaPCGInOZNd9oY5poaYHgHocDQ+gqyplXM6VZLTLI4gPAyroCt1sco/5jT1t+4qlbA7ZQW2d8cUcrXNjLzja0Cgc0UqHHPnBX5Ulk7Fou6ueDi4fSaPQfvXhI2Q/wDOaOofbVbEpaPKHsJ7gvnMrTDn5p76KpexH/BtT8qCe096+/BJ+uOz+K32lm4aZ+SfuWXKilc+w91FbEyuFEd8En647P4p8En647P4qRMwy1z6D9y+8oK0zr1HvpRRiYwoizddNZB2fxXvBYnt8mbLqqOyq2S9pJ5tacQfuWcLgRkKegjvAS7JwojxejgSHNBoSKjLTozWRvYbmHtVMsO2cMtu8WbZ7Q48u6JzjGOTaQ4glzsXk5Hcr65sQIaQwE6CgqeoKZWjqVjeWhGPvOQ6UHUPvWLbwlH0q9YCksUNK/F0rSvNpXhXisviakcyoFT5OQ4ngq7yHQtgkeFmvMHJ4oeO7+CkVqDkcvk+dp5OfVxXhKC6oY6rNKNMZFeFC0qrqR/Ln719Syi+PzN6SVrRVzgBxJAHtWFntMcgxRva8VpVpDhUaio3rmXhT2asjmvmMID2WaRww80YmhxDnBlA41A1UV/w9POO3NrlhgNN1SZQTTjQDsC2wdnEZ4+1hO0oiLMuEREAREQBERAEREAXNYf/AO1eXm2X9U5dKVUj2VeLdarZyraTiIBmE1bybCw1Nc61VotK5WSuZIpL4Id9cdifBDvrjsV8SK4WRqKS+CHfXHYnwQ7647ExIYWRjnUBPDNQTnE58c1bJ7mc5pAeBXoKirdcLo43SGQHDuoeNPtTEiLM8tk/nZ/IO99iuT9NaKm7J/Oz+Qd77Fc3dVVSWpeOhrWnQZ1yPeEd5Y6x3L7adBluPeF8d5Y6x3BQWMW/S8096+gc0j8ZfG/S813eVpXhOfFnvaS01BFDmMxvWNavGlGUnwTlbmlqXpwc5JLi0vE3H+S3qPeF6Hy/T9i8z5LfN+0LEz/H4KfRx19ivKSja/HL3sqk3e3DMzZ9LzT3r2suh61qwytcXgHNoLT11qtqzb+tSmmroNNalEu350z8vJ+scrvNbomvbG6Roe6lGnU1NBT0gqkXb86Z+Xk/WOUjtCaXhAeDWH/G9bKKk7PkzJOyJHa28pII2OiIBLiDUA5UrvWd5Xy1sL+TkbyzWtJGRIzaDUelUaW/3WmzYpZCcMoAxYW6sJyovl5XiBLbWtribFWuVPLh6eldK2XSMlmr38V9TH7xG2JPJ/uy02PaOX+jsc1rjLq7SlZHMyAy0C+eD+18o2b4wvoWakmlQ7iqrdV4jHd4fUudTQCnziQDuUr4IPItPXH3OVqtFQpyduXmykK+KcUuN/JGx4UfkJ/+1l916qX/AA9fKW/zLP3zK2+FH5Cf/tZfdeql/wAPXylv8yz98y5l+Gzd/iI7SiIsDYIiIAiIgCIiALXtUpa0uGdN27VbC0L6mDIXuNaZadJAQGzNNhLBTynYf8Lnfsr46UiRrKZFrneqWAe8VhbDzofyn7D15zSgWiNu8xyd7D+yUIPdspMjmUyDWu9YvB90L5FPUyVyDHU9GFrqn1itOzH+lzeYxbFlHOn/ACn/AMcaMk9bJLjaHZb9FEvvblJXwxVGDIu3E6ED05dNDwUhdQ+Kb6e8qv7FUHKB3lh5Dq8aCnpyk9vFYU06+y4pOzajplrb4F5dirZdfgbF+Q21sEhsz/jqczGRhrv1LhWlaVFK0qQFEXVtHJbLBOJ4TFPEQx4ILQ6jgMTQcxmCCNxCvLyACTpvVCtec1rLdBEA7zqxAg9NQewrXZqMKacF35tt6pWz5/UrVqN5s2NjvnP5h3vtV1fpnX0V+xUrY75z+Yd77Vd3V3LSWpSOhFXpIQ6ENJo5xB6RrvX0yu8ZwV5vJh1OmtKrC+fKs/nnuX0/O/zQ95ee5PeNX/PFf6r1Y7FFYFl+V+bPcPBx0INGuBpuPAqJJ/oJr0e8tuweVafOf3Baf/oT6PeXNtNRzhKT/wCur8HFfI0pQwyS/wDcPimzdtszm8gAaBxoekar0Pzz81+0vG8dbN532L2Pzz81+0umTe8f98P0ozilg/xl5nld3lWjzndy2bjlc+FrnGpNan09C1ru8q0ec7uC9tm/m7PT3qlCT3kFww1P1x+oqrsyfWP6WU+yStbaWucaATyEngOUcrLPabukkbK/k3SNADXFpLgASRQ04k9qpl7WoRMnlwh2B0zqE0rR7sq0NFUv5df9IP0n/jXsqnKWaOBHV+QunDg5KHDXFhwZVpStKa0JCzcLrJe4siJeMLjgNXDI0OWY5rewLkv8uv8ApB+k/wDGvh26/wCkb+k/0K+5q9fEYVyR1pgusFhDIgY/IOA83nF3Nyy5xJ9K97vtV3wYhDyceKlcDSK00rQdJXGztsf7MP0n+hfP5an+zD9J/oUOhUazv4kpWzSR0ray2RzPaGOD2FmFwpkak1BBGYoVS/BDKWWm8S005zOqmObKnBRP8tT/AGYfpP8AQtHZTaQ2KS0SCHlOXINMeDDQvdrhNfL6NFZUZKLVirTbTP0RYbYJBwcNR9oW2uK2fwrOY4OFhB6OXOf+UrxsFtsbxdO02YRckIzlJymLGXj6jaUwdOqxnRnFXtkaouSIixJCIiAIiIAoraX5vJ/d94KVWpeNlEkbmOcQDSpHQQfsUp2Iaua17ylps9DSszR6CCD7CV8tPzuHzHr0tTI5OTq8jA8PFBqRoDloveWygyNlrm0EAbjXiojJPRhpmpZfnc3mMS5fKtH5Zy2o7GBK6WubgARuy4JZLIGGQgk43F5ruJ3BSD5dPyTfT3lR+0VntAgkNjazljm0PoG1JBc7ShNKnPfTNVnb/bCW7TBFAyJ2Nr3F0xIpQtpQNpXV3sTwf+EM2+0yWd8bWkQiVrmYqEtwtlBxfjPbTorXNZ7PRnToQUlokvDJkzqRlUaRoPl2knHJeLxQbjLibl0isj6dYaTworM66PFrDIHOD5HBpkeBQF1R5IJNBrv3qatFQ8uANctAT15hpWnfL3Gyy4ia83UU+kPxQtlN2skkunr+CJZkJsd85/MO99qt1ptDW0BFSdAM6qo7HfOfzDvfarTa2kPa+hIphNMyN9aLn2ucoRvHpnrZXzdun7lqKT1Eb43kNcyjm5tDh7WlYOnZiL2xFxGReBuG4HeF8bWR4IbRra5kUzIpQLGCUsGBzTUZCgrXOooVwb6XF2V32sKzslbhbnnxtkb4VwWfK/ff5ZdTbs7IyC5oHPqTlrXWvSsvFY8ODA3D9Wgp2LCwRFrOdkSSacFlNaWtFS4N840GehNdy7abTgnNJNrS3PVfsZSyk7MydZ2GlWg4dKjTqX3kW4sWEYqUrTOnCqyjeCAQQQRUEZg9IouTXjfl52u2WuKC1+LRQPMYaGDEQCWl1SMRJpXUABzes7KEc27K2b8iIqUnZHVm2dgrRoGLWg161lDC1gwtaAOAyC07ijDbPC0Oc7DG1pc41c4gUcXHe4kGpUioUY6r1f6kO+jOLbZn4uXzp/fKpWzt0OtVoZC00BqXO1wsHlGnHQDpIVy2w8ifzp/fKqeyd5chaA/FhDmlhdwqQRXoq0LvipulJU2lLg3pexnBpZvQslqt1zWd5g8TdNhOF8mTjiGTqOc4HI8KDgqdeEDQcbMmOJIFScO8CpzOXHPJSVt2bn5R2ABzSSQ7EBkTXnVzr1JtBHHFFFA2hkbznkdRyPWT2BW2bZo0E85Sbtdybea6aK/TpyFSo5yjhslnl0/bgSF3w2KyMa61wmaR4q1mobxBaSG0z1Ncxks7ys9gtcLpLHE6GZmbo9GkdVSM6GhbTpXpb7ilt0TLVZsLqDA5mIB1dTrkCCTkSK5ELSluK02KLl5aMxjAGtdVwOoDqZZ9BOiwvss9pT3tp3tbHyWmG/kveWlKrGjfDf3deZ82QuGGVktqtTiLPDqBUY3UqRUZ0AIyGZLgApJt43POTD4k6InJjxRpLtG1c1xoT01CbGFlpsVou8vDJHHlI6/S8k+mjmCvQ7oWhZNiLY1+KWMNYwhznBzTUA1OEA17aUXK5U6m0zW0VHFprClLCsOVmratu9zod4wTgr5O7tf1Yr952IwyOjJrTQ8Qcwf99K6R4CPlLb5sHfKqBtHbGyzuc01aAGg8aakdFSVf/AR8pbfNg75V6u0fhs5o6I6+iIvMLBERAEREAXnK2rSOIIXoiAizdx4N9Z33LZZa4m8wysDmgBwxCoqMqg5ivSttcotuH4XvPEDSlkrTX5NysliKt2OiW69WR4SHNeCaENIJ0rUZ9HtW2LbF+FZ6w+9UyO6oiA4OdQ5g1H3LQlsjBPzy+pGGgNGHOrX56HUGnHfRZzapu8n2efLvNYR3kbRXaXxXTuPvhMuOG0sHPZV0jRGWuBe1xFHHD9JtBUgZmg61v+DzZayWCNzmziSaQAPe+jCAPoNjJqwVzNcyeoUxs10xhwkpnSnTTWmI7ugAV31oFle0bS1opnXKnCn/AOLz6X2jGddUaecW9fmlyNqlB4MctUvX8ltdLZyal0ZPEltVo3/PF4tI1j2aCgBH1gcgFTfF29KeLjpXrYDixErsd85/MO99quksga0ucaAAknoGZVN2RbS1Ef8AsO99i8trvCFYYQ6AOdM52JjxDQ4QQQavPNJrlQGqhxk32VctHQgrJ4YAZvjLMGwE0BDiZA3c4imEnSra7zmaZ9Est9wyQttDHgRP8l7wW14Ua4Arl+xNwXfJKx0ZdMHVGGTCaYeeWluEUdzRrxViMjzYpA8k4ZWBoJ0bTIN4DqWtoVJWinHTXJv3MtUThyfdmkXtjsQBqC0gGo3g5j0Kj+MyPstrxvc6kkYGIk05+6uil7NeUrZrJACMDoYycs64Xb/7oUHB81tn5SP3ypo08GvOPmZTlf4+Ra7vtrIrLA55PybaACpOQ0HYqvfl4G0u/ogEcrak8o1p5RoG8BwJpQ6GvXopO8YCbFZnjRrGA/3gAPbQelVidzWviNSHOcWim/mueR2MKKhCpF35lo1ZU5Jr1kWXZu+WtwxzS4a5AFtGl2riHUyz3E71cFyS8JucIvxDMOtjmxkf54PoXRNl7XylmjJNS0YTXXLT2UVKlCNNXjoTvHOV5anKtsPIn86f3yudLou2HkT+dP75XOwDwXXQ9krEnLua4xAieduuTSzCKEjKsgI7FBE1zOpWeJw3kdqwWsU87svkSVwyyNkOCaWPm1JiIBNCKVBc0EZlL9le6QY5ZJDhyMpBIrqBRzgBkN6jw4jQo53Equ77ePLwV/HUcLBriCCCQRmCMiDxBGhVhve0TGEh1qtLxkML3NwkE0zpISexV+aFzHFr2ua4atcC0jrBzQvJ1J7UnTU3F5O3S/g/oSmYLqXgI+Utvmwd8q5aupeAj5S2+bB3yqK/4bIOvoiLzCQiIgCIiAIiIAuRWuXFel5kaUslOrk3Lp162jC3CNXd29cs/rG8eqyfq3LWmuJnN6E1dtvwGjvJPs6Qo7be+ZbLyNoiaxzeUDXF3k4XDiNNDnnQ7jos1rXnYRaIXWd7iGPLa03UcDUV35KtWnGorT049xaFSUL4dWrH29dppXSNstkAM5AMr3CrLOCBWoGRdnkN/sUw+MtozEXYWgYnGpcaVLieJJJ9K+SWZrHHCwNJDS6gAJIaBVx3nKiytUvNYaZ5tPopT2FfMfZG1U/ve6jGys1fVt82+VtEtFrdtnqbbRkqONviu5LT18jBFrm0FebnE6lfVnjmhtDf7rKyR0RpJLEYWOH0cTmlzh0hoNOkhcxAVn28l+MiZwYXesaD3VV3HJdlGNo35l46EjcN9zWSVs0DqOacwc2uGha4dRIrrnkQrXZdq3y2iGDlGiCcRh3NzZISWgOPQ/eKAtdVVPZ+7o7RjZjpKKFoy03mh8rpG5eV4WCWB4bK0tJqWkaOANC5h359mSlqEp9UFK6aP0SLjdy9nlxikUbWEUOZaHCoO7Va0ezTxFPHyrayua4Ghywurnmuf3ZeVskijf4xLzmg/KOz6dd+q2vGrZ+Hl/Su+9cd5rK/pMo7cjo890h1kNmca1i5OoqMwKBwOoINCDuouRfDBiexlsB5jiY5gMnc1zOe0aOo4g07N6l/GrZ+Hl/Su/eXhaIMbHB7Q4EUOLME+nUrbZ+KZEpGG0L+TnsgcPlY5qdLXGIt7SxXXwd2guZJwGXpa57P2VC7Q2exywQSCjpomsYyhJIFBia4DI01zz9qhbFJM1tInvYMTycLi2tXFwrQ56+1Q5KdNln2Wjw2w8ifzp/fKrdxSSCIhssrRiPkYqVoM6AgV+4K2WmxGRmF5rXFiqSa4jU1IWgdl4PqN7Xfeqf05QwTV11Sa+JMJuOaKztBjcGudJI+lWjGDQHfzicq0GXQeCk7bdsdqhbNZG/GNJ5ZpFHOcWsqRuJqCcsjiO/JSf8AJeD6je133rYsNzNhdijo076F1D1glWi6ccOFWtfJWSz6Is6rs+LfPM505pBIIIIyIORB4EblcfBrZmmWWWpxMa1rRQU+MxEkk76MoOsqftthhmoZ4WuNPKGR7RQ06F5QWOCzDHERG1zmB73Vo0DFQkk5Crqf3hwTbE6lCSj6Sab8Umi+z1YqpHF69Mk9q7EJ7HM1xAMYMrXHdgGKh4VAcKrkC62yfC4Rw8/ExxdI4uc0A0AGOvOcaHeaAZ0yrVvB9cUMs9uitMWLkSwNBLhhq6QZYSK1DW6ri+y4SoU539hu8fDPyNdsqR3iS14+veU1dS8BHylt82DvlUx/Iy7/AOyt9aT95WvZrZ2y2VpdZ4RG6RrcZBca4alvlE/WPau2tXTg1Y507k4iIuMsEREAREQBEWvbX0jcejvyQEJa5sbyd2g6hoqB/WN49Vk/VuV5VG/rG8eqyfq3LeJg9TcWteVpdFDJI2mJrHEVFRWmVQCFsqM2ldSyzeaB2kBSkpZMsRL/AAhSuNXWRhP4spA7Cw07VO3JfnjUOLk8GGRzaYsWgbvoOK5gr/sZDhsjOLnPf2uIHsAWH/E7HQmqtOnaXO8uXeb1NprSjgcsuWX0uTiIsZASCGmhoaHWh3Gi2Oc55tTaRJaXkaN+LB83yvaSoeY80qVvC7HxuwVBw1BPE1Jrn0UWv8FSv5oAqaAVPE03da9KMLJWIVanbNom7bsXG1pljtLoy1uOrhUNIFSQ4EEK8XnfF0zWRllitEVpm+LYwEEkUIEj21GRDA81XjGCAAdaCv2rKi85tsJJH1rQAABQDIAaAbgERfVBJ8UFbNorMxxBkqQSCGgk1BzCnVyVzsTnu+s5x7TX7V0bOs2MKlqSD73nx4hNKG48Ybyjqa5ClaaZK8XFeDZo8TQRQ4SDxAB+1c9njLQyoyLajqJcD7Wn2K0bBS5TM6Wu7ag9wV6qWB2LNXLYiL6uQqfEX1fEAXrHI0Chy+2q8ksNvikxNY8EsJD20IIIJGhzp06Laj7REtD35QUZQbyCfRQZdOEezitbZSEi8LwcWkB7LK4EigdzXtJHEVBHWCvtnkaasrQmpA39OHqyUxs1aDJG55oRykjGED6DThPoxh6zrtUYxitJSt4py80XTdRtvgvKyJqCIvcGjf3b1YwKZBRtzR+U70DvP2KUWEnmWisgiIqlgiIgCIiALUvT5J3o7wttat4NrG7qr2GqLUhkAqN/WN49Vk/VuV5VRtd1TstlqmbC6Rk7YMOB0YwmNrmuDhI9vEGorqt0ZM+qL2mbWyzeaD2OBU027bUdIo2j8eUg9jGOHtWntLdUzLLO98sQaI3VaGPJO4APLwBnvwq0dUEcojOvQV0bZOXFZIujE31XuH2Lm1nBJeR5IcAT0kEgdjT2LpHg1u+Oazy4zJzJiAGSyMFCxp0Y4b8S6K3s3F7omQ08F8cKa5deSmxs/Zd8WLz3Pf77iso7gsbc22SAHjyUde2i5Qcy2jIE2RBDqaZ54f4FeNkdm08CPYQpPwmRtZLzGhoa2N1GgAZOdXIdAUXd55zfOC9eg7xXd9Tya6tJ95cRbIzo8Hqqe4L74y38f0RynuYrmSvlV5CZ6zKb4y36sn6Gf/61oDaOx/2lvqv/AHV0BzqAknICq/OUPkH0/atKcFMjidZFrYW4m4yC2oIiloQRUEHBSnSuU2duTRxp7V3S4XVsFnoa/wBGj0/JgLiV1wY3RMGrsLR1uoB7SFrs719cy8Cc2khaILKQRUMLXDeKgSZjrDu1NirQ1szw5waHRnNxAFQ5tBU9ZXRvCBYw+wy0/wCUWyDoDDzv8BeFzzwdSYbfED9ISMPqOPe1IvFSfvC0LsxwOjgeog9y9TGeB7FYpLDE7yoo3dbGnvC8Bctl3WaIeaxrfa0Bc1ypAqMve9eSIa0AkitToBuyGpyKuLrmg4PHVLKB2B1FRttrGI7QwCtC0EYiXfXGp6gt9mjGdSzMNolKMLojp72meKYqDs/j7VpNq0hzXFrho4a9IPEHgtuw3ZPOS2HBUCpx4qUrTLC08Vvs2ItrvLmiaOhsjvYWBdNXbNm2dunJ2fJJ8e5HPS2XaKy3kfG5Xb+vB1odE0NOMc2gzDnOIDcO/OjRQrq9xMbCGWNpFYYI3O63l4r6Sx59Kg9m9lYYALU0utUmHHGRhYw1FQY8TqVIOTiexbGxtgtgntlqtcYjdOYwxmJri1keMDNpIAo4DXMgnevFqVvvVeLgmoQu7tNYpPJWTzslz4nrOO6p4W83y5avxOg3NJk5u+tfs/31qTVaglLXBw3f7IVijeCARoRVayWZSLyM0RFUsEREAREQBYubUEHfkskQEEbsk4DtCfBsvAdoU6qdb78ncS0fFgGlB5XpJzr1UV02yjSRJOu+QZkAdZC0bbhwluJricqBwdrxAUPJI5xq5xJ4kk96xxaaZZA0FaHUYtaKKkZuNo29euneWpuMZKT4GltfdAtNnjgie1jmSB9C00NGuaW5DI1dr0LPYy622KJ7Hy4nPdiNGkBtABQHfprlqtxtNc/Z9uhWLjnopjOfsW7K7s35iTTjfjf4Er49HxPYU8ej4nsKiJZA1pc40DQSTwAFSVzS13zbrwe5tnDo4W64Tho3jLJUZ0zwg069Vqo3MXKxL7ayttFpc3GGsLmRF7iAGtFA9xrwq4+ha0DomzktcBC2SodXIRA5GvDDTNa9p2ctNoaWRhrcDsLhIS01ABApQ8QsIbrkeHWduHlMJjzJw1bk7OmmR3L0otRk0npE82Sbim17TOjS7c3aMza2+gOd7oKjbd4TrAwfF8pKfxWFo9JfTuKof831s+tD67v3E/m9tn14fWd+4vPUYczvcp8jHajbq02wGPKKE6sYSS4cJH5Fw6AAOgqstlIFK5K0fze2z68PrP8A3E/m9tn14fWf+4tE4rQztO9zS2c2ttNjBYxwfE6tY31Lc9Sw6tPVlxBXrs5aIop4ZJnUjjcxzjQnySCMhmcwF7TbBWtjXPL4aNBcec7QCp+h0LUu66ZLTWKItDqB3OJAoNcwDxCvFqzZtTxKLudUm2yuyaN8ZtTcL2uYcTXtycCD5TRxXNdlrW2K2QSSODWteC51eaA5tHGvDM5rP+b62fWh9d37i1prgtDXmAsq5jRic3EWNacw9z6c1vOzJ+qeCinhSaTEHLijtNnv2yv8idj/ADXB3cV7+PR8T2FcWPg+tvGH1z+6vVtpvK7S0yVfETShdjjPQ12rD2dRWGBcGRjfFHZPHo+J7CqzttZRMxsrHZxYi4U1bka16KHtWzd9sbNEyVlcL2hwrrnuPSNFi21SEECzuxEEUc5lO0ONexVxyp9qOq52+ZoqcKjwz0ff8LcenEh9grQ1s0tTlyYHHPEFdZrczC4h2YaSKg8OpVy02sRzNgZFV72GSlQ0UaQDnx5w3KOv+87RHGBycLXSuEMdZHvq9+QBAjAG/MndvV5Vt+94skyiobj+m82i07E0fYLHz2V8XiFMQByYBoSrELuk4DtC51c9mtcEMcJZDIGNDQRI9hoBQVBjdU9NQtyG/nRTRwOrE+UOLML6g4MyDQDdXUblm075FrovPwbLwHaFK2OMtY1p1H3qAuW+ZnPbG4Ywd9KEdJplRWdZyvxNIpBERVLBERAEREAREQBa1qsMUnlsB6d/aM1sogIOfZqI+S5zewj25+1aUuzD/oytPWCO6qtKK2JkYUUyTZ+0DRrT1OH20Xg+6LQNYneih7ir0iYmRhRz59hlGsT/AFXfctNl2sY1zGwtY11cQazADUUNaAZ0yqumopxkYDkV17O2SzuDoYQ1wBGKriaHUZlV2OeZtqmFns8j5BI/5RobEAXZu5XHU5Goyrmu+lo4BeZs7DqxvYFeNdq/UpKipWvwOdsJoK0rTOmld9OhZK/+Ixfgmeq37l8+DofwMfqN+5Vxl8JQUV9+DYPwMfqj7l8+C4PwLPVCYxhOabQF/i03Jxl7yxzWtArUu5um+la06FC7G2GcF008EcJw8m1jIxGSKglzgDvoBpuXZfgyD8Cz1QvvwZB+Bj9Vv3Kd5lYjBnqUJRd67O2W0PEk0WJwbhBxOHNzNCARvJXUvg6H8DH6jfuWXicX4Jnqj7lGMnBc5hdV0RWevJF9CAKOke5oppha40HoW3PAyRuF7GvafouAcMsxkcl0cQMGjG9gWeEcExjAc7hsxADWRmgyAa3IDcAANEfcr3uDuRlrSlRyjctaGlF0ZEVRrQOCZQLLs5KCS2AgnUk59rjVbjdmpnUxNYKZ841oeIoCrmihzbCgkViLZd30pQOppPtJC3IdmoAQXYnkcTTspn7VNoq4mWsjxgs7GCjGBo6B38V7IigkIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgP/Z",
+    },
+    {
+      title: "Scheduled Task Management (Cron Jobs)",
+      description:
+        "Automating routine tasks and operations through reliable scheduling systems.",
+      category: "Web Development - Backend",
+      imgUrl:
+        "data:image/jpeg;base64,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",
+    },
+
+    // Web Development - Frontend
+    {
+      title: "React Web Application Development",
+      description:
+        "Crafting dynamic and responsive single-page applications (SPAs) with React for an engaging user experience.",
+      category: "Web Development - Frontend",
+      imgUrl:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVGW2X97NCY3JsFuohd7GSdpUVjn5UlSuk2m2VciVJaArgELFfo4STUNLQ33_Zaq1cTOY&usqp=CAU",
+    },
+    {
+      title: "React Component Design",
+      description:
+        "Creating reusable, maintainable, and scalable UI components that can be shared across different parts of an application or even between services.",
+      category: "Web Development - Frontend",
+      imgUrl:
+        "https://mobisoftinfotech.com/resources/wp-content/uploads/2020/08/reactjs-components.png",
+    },
+    {
+      title: "UI/UX Development",
+      description:
+        "Designing user interfaces that are both visually appealing and user-friendly, using React to implement the latest UI/UX trends and best practices.",
+      category: "Web Development - Frontend",
+      imgUrl:
+        "https://png.pngtree.com/thumb_back/fh260/background/20210910/pngtree-ui-ux-application-development-interface-design-illustration-image_860924.jpg",
+    },
+    {
+      title: "Progressive Web App (PWA) Development",
+      description:
+        "Leveraging React to build PWAs that offer a near-native experience, with offline capabilities and improved performance.",
+      category: "Web Development - Frontend",
+      imgUrl:
+        "data:image/jpeg;base64,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",
+    },
+
+    // QA Services
+    {
+      title: "Manual Testing Services",
+      description:
+        "Conducting thorough manual testing of applications to identify bugs, inconsistencies, and usability issues.",
+      category: "QA",
+      imgUrl:
+        "data:image/jpeg;base64,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",
+    },
+    {
+      title: "Test Case Development",
+      description:
+        "Writing detailed test cases that cover all aspects of application functionality to guide the manual testing process.",
+      category: "QA",
+      imgUrl:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj9LCHlZ8WxePFeHRiW7aUQqIMK8-KyoFJEWdcv__azru5olrz3979QqUv99W8IF7JRlM&usqp=CAU",
+    },
+    {
+      title: "Exploratory Testing",
+      description:
+        "Employing experienced QA professionals to explore applications without predefined test cases, uncovering issues that may not be immediately apparent.",
+      category: "QA",
+      imgUrl:
+        "https://img.freepik.com/premium-vector/technical-trader-analyzing-stock-chart-crypto-market-atools-investment-stock-trading-based_566886-2558.jpg?ga=GA1.1.747063962.1703945474&semt=ais",
+    },
+    {
+      title: "User Acceptance Testing (UAT)",
+      description:
+        "Facilitating end-user testing to validate that the application meets business requirements and user expectations before release.",
+      category: "QA",
+      imgUrl:
+        "data:image/jpeg;base64,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",
+    },
+    {
+      title: "Cross-Browser Testing",
+      description:
+        "Ensuring compatibility and consistent performance across various web browsers and versions.",
+      category: "QA",
+      imgUrl:
+        "data:image/png;base64,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",
+    },
+    {
+      title: "Mobile Application Testing",
+      description:
+        "Verifying the functionality, usability, and consistency of mobile applications on different devices and operating systems.",
+      category: "QA",
+      imgUrl:
+        "https://thebossmagazine.com/wp-content/uploads/2022/09/Automation.jpg",
+    },
+  ];
+
   return (
     <section className="service" id="ServicesOffered">
       <Container>
@@ -383,7 +321,7 @@ export const Services = () => {
               {({ isVisible }) => (
                 <div
                   className={
-                    isVisible ? "animate__animated animate__fadeIn" : ""
+                    isVisible ? "animate__animated animate__bounce" : ""
                   }
                 >
                   <h2>Services Offered</h2>
@@ -407,9 +345,11 @@ export const Services = () => {
                         </Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
-                        <Nav.Link eventKey="fourth">Frontend Development</Nav.Link>
+                        <Nav.Link eventKey="fourth">
+                          Frontend Development
+                        </Nav.Link>
                       </Nav.Item>
-                    <Nav.Item>
+                      <Nav.Item>
                         <Nav.Link eventKey="fifth">QA Services</Nav.Link>
                       </Nav.Item>
                     </Nav>
@@ -429,7 +369,7 @@ export const Services = () => {
                         </Row>
                       </Tab.Pane>
                       <Tab.Pane eventKey="second">
-                      <Row>
+                        <Row>
                           {services
                             .filter((service) => service.category === "DevOps")
                             .map((service, index) => (
@@ -438,25 +378,32 @@ export const Services = () => {
                         </Row>
                       </Tab.Pane>
                       <Tab.Pane eventKey="third">
-                      <Row>
+                        <Row>
                           {services
-                            .filter((service) => service.category === "Web Development - Backend")
+                            .filter(
+                              (service) =>
+                                service.category === "Web Development - Backend"
+                            )
                             .map((service, index) => (
                               <ServiceCard key={index} {...service} />
                             ))}
                         </Row>
                       </Tab.Pane>
                       <Tab.Pane eventKey="fourth">
-                      <Row>
+                        <Row>
                           {services
-                            .filter((service) => service.category === "Web Development - Frontend")
+                            .filter(
+                              (service) =>
+                                service.category ===
+                                "Web Development - Frontend"
+                            )
                             .map((service, index) => (
                               <ServiceCard key={index} {...service} />
                             ))}
                         </Row>
                       </Tab.Pane>
                       <Tab.Pane eventKey="fifth">
-                      <Row>
+                        <Row>
                           {services
                             .filter((service) => service.category === "QA")
                             .map((service, index) => (

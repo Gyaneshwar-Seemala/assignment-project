@@ -1,13 +1,14 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import { Navbar, Nav, Container } from "react-bootstrap";
 import { useEffect, useState } from 'react';
 import logo from '../assets/img/logo.svg';
 import navIcon1 from '../assets/img/nav-icon1.svg';
 import navIcon2 from '../assets/img/nav-icon2.svg';
 import navIcon3 from '../assets/img/nav-icon3.svg';
 import '../styles/NavBar.css';
-
+import { HashLink } from 'react-router-hash-link';
+import {
+  BrowserRouter as Router
+} from "react-router-dom";
 export const NavBar=()=>{
     const [activeLink,setActiveLink]=useState('home');
     const [scrolled,setScrolled]=useState(false);
@@ -29,7 +30,8 @@ export const NavBar=()=>{
     }
 
     return(
-        <Navbar expand="lg" className={scrolled ? "scrolled": ""}>
+      <Router>
+        <Navbar expand="md" className={scrolled ? "scrolled": ""}>
       <Container>
         <Navbar.Brand href="#home">
             <img src={logo} alt='Logo'/>
@@ -48,10 +50,13 @@ export const NavBar=()=>{
                 <a href='#'><img src={navIcon2} /></a>
                 <a href='#'><img src={navIcon3} /></a>
             </div>
-            <button className='vvd' onClick={()=>console.log('connect')}><span>Let's Connect</span></button>
+            <HashLink to='#connect'>
+                <button className="vvd"><span>Let’s Connect</span></button>
+              </HashLink>
           </span>
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    </Router>
     );
 }

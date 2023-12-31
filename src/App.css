@@ -73,7 +73,10 @@ input:focus, textarea:focus, select:focus {/*when the element is active we use f
 }
 
 p.success {
-	color: green;
+	color: rgb(91, 219, 91);
+  font-size: 30px;
+  font-weight: bolder;
+  -webkit-text-stroke: 1px black; /* For Safari/Chrome */
 }
 
 p.danger {
